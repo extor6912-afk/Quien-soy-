@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>¿Quién soy?</title>
+</head>
+
+<body style="text-align:center; font-family:Arial; margin-top:100px; background: linear-gradient(135deg, #6a11cb, #2575fc); color:white;">
+
+  <h1>¿Quieres saber quién soy?</h1>
+
+  <p>Inserta la clave:</p>
+
+  <input type="text" id="codigo" placeholder="Código secreto"
+    style="padding:10px; font-size:16px;">
+
+  <button onclick="verificar()"
+    style="padding:10px 20px; font-size:16px; margin-left:10px;">
+    Entrar
+  </button>
+
+  <br><br>
+
+  <div style="font-size:14px; opacity:0.85; line-height:1.6;">
+    <p>Pista: “El código tiene 6 números”</p>
+    <p>Los 2 primeros están en el primer párrafo (son el 1.º y el 3.º número).</p>
+    <p>El 3.º número está al inicio de esta pista.</p>
+    <p>El 4.º número es la cantidad de dígitos de un DNI.</p>
+    <p>El 5.º número es ese mismo número de orden.</p>
+    <p>El 6.º número es el segundo número que aparece en esta pista.</p>
+  </div>
+
+  <p id="mensaje"></p>
+
+  <script>
+    function verificar() {
+      let codigo = document.getElementById("codigo").value;
+
+      if (codigo === "126852") {
+        window.location.href = "correcto.html";
+      } else {
+        window.location.href = "incorrecto.html";
+      }
+    }
+  </script>
+
+</body>
+</html>
