@@ -1,36 +1,121 @@
 <!DOCTYPE html>
-<html>
+<html lang="es">
 <head>
+  <meta charset="UTF-8">
   <title>¿Quién soy?</title>
-<link rel="icon" href="icono.png" type="image/png">
+
+  <link rel="icon" href="icono.png" type="image/png">
+
+  <!-- Fuente moderna -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+
+  <style>
+    body {
+      margin: 0;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(135deg, #6a11cb, #2575fc);
+      color: white;
+      animation: fadeIn 1s ease;
+    }
+
+    .card {
+      background: rgba(255,255,255,0.1);
+      padding: 40px;
+      border-radius: 20px;
+      backdrop-filter: blur(10px);
+      box-shadow: 0 10px 40px rgba(0,0,0,0.3);
+      text-align: center;
+      width: 350px;
+    }
+
+    h1 {
+      margin-bottom: 10px;
+      font-size: 28px;
+    }
+
+    p {
+      margin: 10px 0;
+    }
+
+    .input-box {
+      margin-top: 15px;
+    }
+
+    input {
+      padding: 12px;
+      border-radius: 8px;
+      border: none;
+      outline: none;
+      width: 60%;
+    }
+
+    button {
+      padding: 12px 18px;
+      border-radius: 8px;
+      border: none;
+      background: white;
+      color: #333;
+      font-weight: bold;
+      cursor: pointer;
+      transition: 0.3s;
+      margin-left: 8px;
+    }
+
+    button:hover {
+      background: #ddd;
+    }
+
+    .pistas {
+      text-align: left;
+      margin-top: 20px;
+      font-size: 13px;
+      opacity: 0.85;
+      line-height: 1.5;
+    }
+
+    .pistas p {
+      margin: 5px 0;
+    }
+
+    #mensaje {
+      margin-top: 10px;
+      font-size: 14px;
+      color: #ffdddd;
+    }
+
+    @keyframes fadeIn {
+      from {opacity: 0; transform: translateY(20px);}
+      to {opacity: 1; transform: translateY(0);}
+    }
+  </style>
 </head>
 
-<body style="text-align:center; font-family:Arial; margin-top:100px; background: linear-gradient(135deg, #6a11cb, #2575fc); color:white;">
+<body>
 
-  <h1>¿Quieres saber quién soy?</h1>
+  <div class="card">
+    <h1>¿Quieres saber quién soy?</h1>
+    <p>Inserta la clave:</p>
 
-  <p>Inserta la clave:</p>
+    <div class="input-box">
+      <input type="text" id="codigo" placeholder="Código secreto">
+      <button onclick="verificar()">Entrar</button>
+    </div>
 
-  <input type="text" id="codigo" placeholder="Código secreto"
-    style="padding:10px; font-size:16px;">
+    <div class="pistas">
+      <p>🔹 El código tiene 6 números</p>
+      <p>🔹 Los 2 primeros están en el primer párrafo</p>
+      <p>🔹 El 3.º número está al inicio de esta pista</p>
+      <p>🔹 El 4.º número es la cantidad de dígitos de un DNI</p>
+      <p>🔹 El 5.º número es ese mismo número de orden</p>
+      <p>🔹 El 6.º número es el segundo número que aparece aquí</p>
+    </div>
 
-  <button onclick="verificar()"
-    style="padding:10px 20px; font-size:16px; margin-left:10px;">
-    Entrar
-  </button>
-
-  <br><br>
-
-  <div style="font-size:14px; opacity:0.85; line-height:1.6;">
-    <p>Pista: “El código tiene 6 números”</p>
-    <p>Los 2 primeros están en el primer párrafo (son el 1.º y el 3.º número).</p>
-    <p>El 3.º número está al inicio de esta pista.</p>
-    <p>El 4.º número es la cantidad de dígitos de un DNI.</p>
-    <p>El 5.º número es ese mismo número de orden.</p>
-    <p>El 6.º número es el segundo número que aparece en esta pista.</p>
+    <p id="mensaje"></p>
   </div>
-
-  <p id="mensaje"></p>
 
   <script>
     function verificar() {
@@ -39,7 +124,7 @@
       if (codigo === "126852") {
         window.location.href = "correcto.html";
       } else {
-        window.location.href = "incorrecto.html";
+        document.getElementById("mensaje").innerText = "Código incorrecto...";
       }
     }
   </script>
